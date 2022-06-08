@@ -11,7 +11,7 @@ class SignInScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Sign In"),
         toolbarTextStyle: Theme.of(context).textTheme.bodyText2,
-        titleTextStyle: Theme.of(context).textTheme.headline6,
+        titleTextStyle: Theme.of(context).textTheme.headline6
       ),
       body: const Body(),
     );

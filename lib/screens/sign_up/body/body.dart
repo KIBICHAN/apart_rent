@@ -1,10 +1,9 @@
-import 'package:apart_rent/components/no_account_text.dart';
-import 'package:apart_rent/provider/google_sign_in.dart';
-import 'package:apart_rent/screens/profile/profile_screen.dart';
-import 'package:apart_rent/screens/sign_in/body/background.dart';
-import 'package:apart_rent/screens/sign_in/body/sign_form.dart';
-import 'package:apart_rent/size_config.dart';
 import 'package:apart_rent/components/social_card.dart';
+import 'package:apart_rent/constants.dart';
+import 'package:apart_rent/provider/google_sign_in.dart';
+import 'package:apart_rent/screens/sign_up/body/background.dart';
+import 'package:apart_rent/screens/sign_up/body/sign_up_form.dart';
+import 'package:apart_rent/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -19,30 +18,21 @@ class Body extends StatelessWidget {
           width: double.infinity,
           child: Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: getProportionateScreenWidth(20),
+              horizontal: getProportionateScreenHeight(20),
             ),
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  SizedBox(
-                    height: SizeConfig.screenHeight * 0.04,
-                  ),
-                  Text(
-                    "Welcome Back",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: getProportionateScreenWidth(28),
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  SizedBox(height: SizeConfig.screenHeight * 0.04),
+                  Text("Register Account", style: headingStyle),
                   const Text(
-                    "Sign in with your email and password \nor continue with social media",
+                    "Complete your details or continue\nwith social media",
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(
                     height: SizeConfig.screenHeight * 0.08,
                   ),
-                  const SignForm(),
+                  const SignUpForm(),
                   SizedBox(
                     height: SizeConfig.screenHeight * 0.08,
                   ),
@@ -56,8 +46,6 @@ class Body extends StatelessWidget {
                               context,
                               listen: false);
                           provider.googleLogin();
-
-                          Navigator.of(context).pop();
                         },
                       ),
                       SocialCard(
@@ -71,7 +59,6 @@ class Body extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: getProportionateScreenHeight(20)),
-                  const NoAccountText(),
                 ],
               ),
             ),
