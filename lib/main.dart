@@ -1,8 +1,8 @@
 import 'package:apart_rent/navigator/google_navigator.dart';
+import 'package:apart_rent/routes.dart';
+import 'package:apart_rent/theme.dart';
 import 'package:firebase_core/firebase_core.dart';
-// import 'package:apart_rent/routes.dart';
-// import 'package:apart_rent/screens/about/about_screen.dart';
-// import 'package:apart_rent/theme.dart';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -23,10 +23,9 @@ class MyApp extends StatelessWidget {
         create: (context) => GoogleSignInProvider(),
         child: MaterialApp(
           title: 'Flutter Demo',
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-          ),
-          home: const GoogleNavigator(),
+          theme: theme(),
+          initialRoute: GoogleNavigator.routeName,
+          routes: routes,
         ),
       );
 }
