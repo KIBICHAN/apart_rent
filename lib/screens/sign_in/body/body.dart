@@ -1,6 +1,5 @@
 import 'package:apart_rent/components/no_account_text.dart';
 import 'package:apart_rent/provider/google_sign_in.dart';
-import 'package:apart_rent/screens/profile/profile_screen.dart';
 import 'package:apart_rent/screens/sign_in/body/background.dart';
 import 'package:apart_rent/screens/sign_in/body/sign_form.dart';
 import 'package:apart_rent/size_config.dart';

@@ -16,7 +16,7 @@ class AboutContent extends StatelessWidget {
       children: <Widget>[
         const Spacer(),
         Text(
-          "TOKOTO",
+          "APART-RE",
           style: TextStyle(
             fontSize: getProportionateScreenWidth(36),
             color: kPrimaryColor,

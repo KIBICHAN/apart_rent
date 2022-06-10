@@ -53,7 +53,7 @@ class _SignUpFormState extends State<SignUpForm> {
           buildConfirmPasswordFormField(),
           FormError(errors: errors),
           SizedBox(
-            height: getProportionateScreenHeight(400),
+            height: getProportionateScreenHeight(40),
           ),
           DefaultButton(
             text: "Continue",
@@ -123,6 +123,7 @@ class _SignUpFormState extends State<SignUpForm> {
           suffixIcon: CustomSurffixIcon(
             svgIcon: "assets/icons/Lock.svg",
           )),
+      obscureText: true,
     );
   }
 
@@ -155,6 +156,7 @@ class _SignUpFormState extends State<SignUpForm> {
           svgIcon: "assets/icons/Lock.svg",
         ),
       ),
+      obscureText: true,
     );
   }
 }
