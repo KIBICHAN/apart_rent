@@ -1,6 +1,5 @@
 import 'package:apart_rent/components/menu.dart';
 import 'package:apart_rent/provider/google_sign_in.dart';
-import 'package:apart_rent/screens/profile/profile_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
