@@ -1,5 +1,4 @@
 import 'package:apart_rent/screens/home/home_screen.dart';
-import 'package:apart_rent/screens/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:apart_rent/screens/about/about_screen.dart';

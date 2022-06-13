@@ -43,9 +43,9 @@ class _SignFormState extends State<SignForm>{
       child: Column(
         children: [
           buildEmailFormField(),
-          SizedBox(height: getProportionateScreenHeight(30),),
+          SizedBox(height: getProportionateScreenHeight(35),),
           buildPasswordFormField(),
-          SizedBox(height: getProportionateScreenHeight(30),),
+          SizedBox(height: getProportionateScreenHeight(35),),
           Row(
             children: [
               Checkbox(value: remember, activeColor: kPrimaryColor, onChanged: (value){
@@ -65,9 +65,9 @@ class _SignFormState extends State<SignForm>{
             ],
           ),
           FormError(errors: errors),
-          SizedBox(height: getProportionateScreenHeight(20),),
+          SizedBox(height: getProportionateScreenHeight(95),),
           DefaultButton(
-            text: "Continue",
+            text: "Sign In",
             press: (){
               if(_formKey.currentState!.validate()){
                 _formKey.currentState!.save();
@@ -103,6 +103,7 @@ class _SignFormState extends State<SignForm>{
         return null;
       },
       decoration: const InputDecoration(
+        contentPadding: EdgeInsets.all(13),
         labelText: "Password",
         hintText: "Enter your password",
         floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -134,6 +135,7 @@ class _SignFormState extends State<SignForm>{
         return null;
       },
       decoration: const InputDecoration(
+        contentPadding: EdgeInsets.all(13),
         labelText: "Email",
         hintText: "Enter your email",
         floatingLabelBehavior: FloatingLabelBehavior.always,

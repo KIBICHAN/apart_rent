@@ -1,4 +1,3 @@
-import 'package:apart_rent/constants.dart';
 import 'package:apart_rent/size_config.dart';
 import 'package:flutter/material.dart';
 
