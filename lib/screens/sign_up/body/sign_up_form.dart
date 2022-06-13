@@ -2,6 +2,7 @@ import 'package:apart_rent/components/custom_surfix_icon.dart';
 import 'package:apart_rent/components/default_button.dart';
 import 'package:apart_rent/components/form_error.dart';
 import 'package:apart_rent/constants.dart';
+import 'package:apart_rent/helper/keyboard.dart';
 import 'package:apart_rent/size_config.dart';
 import 'package:flutter/material.dart';
 
@@ -44,20 +45,26 @@ class _SignUpFormState extends State<SignUpForm> {
         children: [
           buildEmailFormField(),
           SizedBox(
-            height: getProportionateScreenHeight(30),
+            height: getProportionateScreenHeight(35),
           ),
           buildPasswordFormField(),
           SizedBox(
-            height: getProportionateScreenHeight(30),
+            height: getProportionateScreenHeight(35),
           ),
           buildConfirmPasswordFormField(),
           FormError(errors: errors),
           SizedBox(
-            height: getProportionateScreenHeight(40),
+            height: getProportionateScreenHeight(95),
           ),
           DefaultButton(
-            text: "Continue",
-            press: () {},
+            text: "Sign Up",
+            press: () {
+              if(_formKey.currentState!.validate()){
+                _formKey.currentState!.save();
+                KeyboardUtil.hideKeyboard(context);
+                //Navigator.pushNamed(context, LoginSuccessScreen.routeName);
+              }
+            },
           )
         ],
       ),
@@ -87,6 +94,7 @@ class _SignUpFormState extends State<SignUpForm> {
         return null;
       },
       decoration: const InputDecoration(
+        contentPadding: EdgeInsets.all(13),
         labelText: "Email",
         hintText: "Enter your email",
         floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -117,12 +125,13 @@ class _SignUpFormState extends State<SignUpForm> {
         return null;
       },
       decoration: const InputDecoration(
+        contentPadding: EdgeInsets.all(13),
           labelText: "Password",
           hintText: "Enter your password",
           floatingLabelBehavior: FloatingLabelBehavior.always,
           suffixIcon: CustomSurffixIcon(
             svgIcon: "assets/icons/Lock.svg",
-          )),
+          ),),
       obscureText: true,
     );
   }
@@ -149,6 +158,7 @@ class _SignUpFormState extends State<SignUpForm> {
         return null;
       },
       decoration: const InputDecoration(
+        contentPadding: EdgeInsets.all(13),
         labelText: "Confirm Password",
         hintText: "Enter confirm password",
         floatingLabelBehavior: FloatingLabelBehavior.always,

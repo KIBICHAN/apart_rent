@@ -1,6 +1,6 @@
 import 'package:apart_rent/components/social_card.dart';
 import 'package:apart_rent/constants.dart';
-import 'package:apart_rent/provider/google_sign_in.dart';
+import 'package:apart_rent/provider/google_sign_in_service.dart';
 import 'package:apart_rent/screens/sign_up/body/background.dart';
 import 'package:apart_rent/screens/sign_up/body/sign_up_form.dart';
 import 'package:apart_rent/size_config.dart';
@@ -34,7 +34,7 @@ class Body extends StatelessWidget {
                   ),
                   const SignUpForm(),
                   SizedBox(
-                    height: SizeConfig.screenHeight * 0.08,
+                    height: SizeConfig.screenHeight * 0.15,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -42,10 +42,12 @@ class Body extends StatelessWidget {
                       SocialCard(
                         icon: "assets/icons/google-icon.svg",
                         press: () {
-                          final provider = Provider.of<GoogleSignInProvider>(
+                          final provider = Provider.of<GoogleSignInService>(
                               context,
                               listen: false);
                           provider.googleLogin();
+
+                          Navigator.of(context).pop();
                         },
                       ),
                       SocialCard(

@@ -1,3 +1,5 @@
+import 'package:apart_rent/bottom_menu.dart';
+import 'package:apart_rent/components/custom_bottom_nav_bar.dart';
 import 'package:apart_rent/screens/profile/body/body.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +17,7 @@ class ProfileScreen extends StatelessWidget {
         titleTextStyle: Theme.of(context).textTheme.headline6,
       ),
       body: const Body(),
-      //bottomNavigationBar: CustomBottomNavBar(selectedMenu: MenuState.profile),
+      bottomNavigationBar: const CustomBottomNavBar(selectedMenu: MenuState.profile),
     );
   }
 }

@@ -2,6 +2,7 @@ import 'package:apart_rent/screens/home/body/background.dart';
 import 'package:apart_rent/screens/home/body/hi_user.dart';
 import 'package:apart_rent/screens/home/body/home_header.dart';
 import 'package:apart_rent/screens/home/body/promo_slider.dart';
+import 'package:apart_rent/screens/home/body/question_area.dart';
 import 'package:apart_rent/screens/home/body/what_news.dart';
 import 'package:apart_rent/screens/home/body/work_area.dart';
 import 'package:apart_rent/size_config.dart';
@@ -23,11 +24,13 @@ class Body extends StatelessWidget{
             const HomeHeader(),
             SizedBox(height: getProportionateScreenWidth(10)),
             const PromoSlider(),
-            SizedBox(height: getProportionateScreenWidth(50)),
+            SizedBox(height: getProportionateScreenWidth(10)),
             const WorkArea(),
             SizedBox(height: getProportionateScreenWidth(40)),
             const WhatNews(),
             SizedBox(height: getProportionateScreenWidth(40)),
+            const QuestionArea(),
+            SizedBox(height: getProportionateScreenWidth(50)),
           ]),
       ),
       ),

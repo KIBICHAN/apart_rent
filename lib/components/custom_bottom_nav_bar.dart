@@ -1,5 +1,8 @@
 import 'package:apart_rent/bottom_menu.dart';
 import 'package:apart_rent/constants.dart';
+import 'package:apart_rent/screens/home/home_screen.dart';
+import 'package:apart_rent/screens/post_manager/post_manager_screen.dart';
+import 'package:apart_rent/screens/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -13,7 +16,7 @@ class CustomBottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     const Color inActiveIconColor = Color(0xFFB6B6B6);
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 14),
+      padding: const EdgeInsets.symmetric(vertical: 4),
       decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: [
@@ -24,8 +27,8 @@ class CustomBottomNavBar extends StatelessWidget {
           ),
         ],
         borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(40),
-          topRight: Radius.circular(40),
+          topLeft: Radius.circular(25),
+          topRight: Radius.circular(25),
         ),
       ),
       child: SafeArea(
@@ -34,7 +37,9 @@ class CustomBottomNavBar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, HomeScreen.routeName);
+              },
               icon: SvgPicture.asset(
                 "assets/icons/Shop Icon.svg",
                 color: MenuState.home == selectedMenu
@@ -43,7 +48,9 @@ class CustomBottomNavBar extends StatelessWidget {
               ),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, PostManagerScreen.routeName);
+              },
               icon: SvgPicture.asset(
                 "assets/icons/Heart Icon.svg",
                 color: MenuState.favourite == selectedMenu
@@ -54,14 +61,16 @@ class CustomBottomNavBar extends StatelessWidget {
             IconButton(
               onPressed: () {},
               icon: SvgPicture.asset(
-                "assets/icons/Chat bubble Icon.svg",
-                color: MenuState.message == selectedMenu
+                "assets/icons/Bell.svg",
+                color: MenuState.notification == selectedMenu
                     ? kPrimaryColor
                     : inActiveIconColor,
                 ),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, ProfileScreen.routeName);
+              },
               icon: SvgPicture.asset(
                   "assets/icons/User Icon.svg",
                   color: MenuState.profile == selectedMenu

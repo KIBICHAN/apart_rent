@@ -16,13 +16,13 @@ class Menu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
       child: TextButton(
         style: TextButton.styleFrom(
           primary: kPrimaryColor,
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(12),
           shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
           backgroundColor: const Color(0xFFF5F6F9),
         ),
         onPressed: press,

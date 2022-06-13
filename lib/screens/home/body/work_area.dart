@@ -1,4 +1,5 @@
 import 'package:apart_rent/components/item_card.dart';
+import 'package:apart_rent/constants.dart';
 import 'package:apart_rent/size_config.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +28,7 @@ class WorkArea extends StatelessWidget {
                 child: const Text(
                   "See More",
                   style: TextStyle(
-                    color: Color(0xFFBBBBBB),
+                    color: kPrimaryColor,
                   ),
                 ),
               ),
