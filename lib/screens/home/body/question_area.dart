@@ -40,6 +40,7 @@ class QuestionArea extends StatelessWidget {
                   child: Text(
                     "Giới thiệu về Rent-Ap",
                     style: TextStyle(
+                      fontStyle: FontStyle.normal,
                       color: Colors.black,
                     ),
                   ),
@@ -53,6 +54,7 @@ class QuestionArea extends StatelessWidget {
                   child: Text(
                     "Rent-Ap có an toàn không?",
                     style: TextStyle(
+                      fontStyle: FontStyle.normal,
                       color: Colors.black,
                     ),
                   ),
