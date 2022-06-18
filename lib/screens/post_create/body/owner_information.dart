@@ -1,11 +1,9 @@
-import 'package:apart_rent/components/custom_drop_box.dart';
 import 'package:apart_rent/components/custom_text_field.dart';
-import 'package:apart_rent/constants.dart';
 import 'package:apart_rent/size_config.dart';
 import 'package:flutter/material.dart';
 
-class BasicInformation extends StatelessWidget {
-  const BasicInformation({Key? key}) : super(key: key);
+class OwnerInformation extends StatelessWidget {
+  const OwnerInformation({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,37 +26,31 @@ class BasicInformation extends StatelessWidget {
                         color: Colors.black),
                   ),
                 ),
-                CustomDropBox(
-                  list: type,
-                  hint: "Chọn loại hình kinh doanh",
-                  label: "Type",
-                ),
-                SizedBox(
-                  height: getProportionateScreenWidth(10),
-                ),
-                CustomDropBox(
-                    list: city, hint: "Chọn Tỉnh/Thành phố", label: "City"),
-                SizedBox(
-                  height: getProportionateScreenWidth(10),
-                ),
                 const CustomTextField(
-                    hint: "Quan/Huyen",
-                    label: "District",
+                    hint: "Tên liên hệ",
+                    label: "Nhập tên",
                     type: TextInputType.text),
                 SizedBox(
                   height: getProportionateScreenWidth(10),
                 ),
                 const CustomTextField(
-                    hint: "Phuong/Xa",
-                    label: "Phuong",
-                    type: TextInputType.text),
+                    hint: "Địa chỉ",
+                    label: "Nhập địa chỉ",
+                    type: TextInputType.number),
                 SizedBox(
                   height: getProportionateScreenWidth(10),
                 ),
                 const CustomTextField(
-                    hint: "Duong/Pho",
-                    label: "Street",
-                    type: TextInputType.text),
+                    hint: "Di động",
+                    label: "Nhập di động",
+                    type: TextInputType.number),
+                SizedBox(
+                  height: getProportionateScreenWidth(10),
+                ),
+                const CustomTextField(
+                    hint: "Email",
+                    label: "Nhập Email",
+                    type: TextInputType.number),
                 SizedBox(
                   height: getProportionateScreenWidth(30),
                 ),

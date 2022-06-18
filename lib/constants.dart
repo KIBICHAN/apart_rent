@@ -1,7 +1,5 @@
 import 'package:apart_rent/size_config.dart';
 import 'package:flutter/material.dart';
-import 'package:apart_rent/provider/storage_service.dart';
-import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 
 const kPrimaryColor = Color.fromARGB(235, 255, 189, 67);
 const kPrimaryLightColor = Color(0xFFFFECDF);
@@ -72,45 +70,12 @@ List<String> type = [
   "Cho thuê căn hộ chung cư"
 ];
 
-class FirebaseStorage extends StatelessWidget {
-  const FirebaseStorage({Key? key}) : super(key: key);
+List<String> apartDirection  = [
+  "Đông", "Tây", "Nam", "Bắc",
+  "Đông-Bắc", "Tây-Bắc", "Tây-Nam", "Đông-Nam"
+];
 
-  @override
-  Widget build(BuildContext context) {
-    final StorageService storage = StorageService();
-    return Scaffold(
-      body: Column(
-        children: [
-          FutureBuilder(
-            future: storage.listFiles(),
-            builder:
-                (context, AsyncSnapshot<firebase_storage.ListResult> snapshot) {
-              if (snapshot.connectionState == ConnectionState.done &&
-                  snapshot.hasData) {
-                return Container();
-              } else if (snapshot.connectionState == ConnectionState.waiting &&
-                  !snapshot.hasData) {
-                return const CircularProgressIndicator();
-              }
-              return Container();
-            },
-          ),
-          FutureBuilder(
-            future: storage.downloadURL(''),
-            builder:
-                (context, AsyncSnapshot<String> snapshot) {
-              if (snapshot.connectionState == ConnectionState.done &&
-                  snapshot.hasData) {
-                return Container();
-              } else if (snapshot.connectionState == ConnectionState.waiting &&
-                  !snapshot.hasData) {
-                return const CircularProgressIndicator();
-              }
-              return Container();
-            },
-          ),
-        ],
-      ),
-    );
-  }
-}
+List<String> balconyDirection  = [
+  "Đông", "Tây", "Nam", "Bắc",
+  "Đông-Bắc", "Tây-Bắc", "Tây-Nam", "Đông-Nam"
+];
