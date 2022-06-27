@@ -1,4 +1,3 @@
-import 'package:apart_rent/components/custom_text.dart';
 import 'package:flutter/material.dart';
 
 class CustomDetailPostText extends StatelessWidget {
@@ -40,18 +39,16 @@ class CustomDetailPostText extends StatelessWidget {
                 alignment: PlaceholderAlignment.baseline,
                 baseline: TextBaseline.alphabetic,
                 child: SizedBox(width: 10)),
-              TextSpan(
+            TextSpan(
               text: contentSection,
               style: TextStyle(
                   fontWeight: FontWeight.normal,
                   fontSize: contentSize.toDouble(),
                   color: contentColor),
-              ),
-            
+            ),
           ],
         ),
       ),
-      
     );
     // return Row(
     //   mainAxisAlignment: MainAxisAlignment.start,
