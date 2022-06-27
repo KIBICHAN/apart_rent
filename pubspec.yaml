@@ -30,6 +30,8 @@ dependencies:
   flutter:
     sdk: flutter
 
+  #Upgrade SDK and pub version
+
   firebase_core: ^1.17.1 
 
   # Database
