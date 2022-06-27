@@ -5,7 +5,14 @@ class RentPost{
   final String area;
   final int numBedroom;
   final int numBathroom;
-  final String location;
+  final String directHouse;
+  final String directBalcony;
+  final String furniture;
+  final String postDay;
+  final String city;
+  final String district;
+  final String commune;
+  final String street;
   final String description;
   final String time;
   final String imgUrl;
@@ -17,7 +24,14 @@ class RentPost{
     required this.area, 
     required this.numBedroom, 
     required this.numBathroom, 
-    required this.location, 
+    required this.directHouse,
+    required this.directBalcony,
+    required this.furniture,
+    required this.postDay,
+    required this.city,
+    required this.district,
+    required this.commune,
+    required this.street,
     required this.description, 
     required this.time, 
     required this.imgUrl, 
@@ -31,7 +45,14 @@ class RentPost{
       area: json['area'],
       numBedroom: json['numBedroom'],
       numBathroom: json['numBathroom'],
-      location: json['location'],
+      directHouse: json['directHouse'],
+      directBalcony: json['directBalcony'],
+      furniture: json['furniture'],
+      postDay: json['postDay'],
+      city: json['city'],
+      district: json['district'],
+      commune: json['commune'],
+      street: json['street'],
       description: json['description'],
       time: json['time'],
       imgUrl: json['imgUrl']
