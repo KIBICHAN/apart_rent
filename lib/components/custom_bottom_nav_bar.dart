@@ -1,6 +1,7 @@
 import 'package:apart_rent/bottom_menu.dart';
 import 'package:apart_rent/constants.dart';
 import 'package:apart_rent/screens/home/home_screen.dart';
+import 'package:apart_rent/screens/notification/notification_screen.dart';
 import 'package:apart_rent/screens/post_manager/post_manager_screen.dart';
 import 'package:apart_rent/screens/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
@@ -58,7 +59,9 @@ class CustomBottomNavBar extends StatelessWidget {
                     : inActiveIconColor,)
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, NotificationScreen.routeName);
+              },
               icon: Icon(
                 Icons.notifications,
                 size: 30,

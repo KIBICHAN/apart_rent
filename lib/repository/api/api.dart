@@ -12,3 +12,12 @@ Future<List<RentPost>> fetchAllData() async {
     throw Exception('Fail to load API');
   }
 }
+
+Future<RentPost> fetchData() async {
+  final response = await http.get(Uri.parse("$apiUrl?id=1"));
+  if(response.statusCode == 200){
+    return RentPost.fromJson(jsonDecode(response.body));
+  }else{
+    throw Exception('Fail to load DemoApi');
+  }
+}
