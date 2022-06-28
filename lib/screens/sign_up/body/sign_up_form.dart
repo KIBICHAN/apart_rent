@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_returning_null_for_void
+
 import 'package:apart_rent/components/custom_surfix_icon.dart';
 import 'package:apart_rent/components/default_button.dart';
 import 'package:apart_rent/components/form_error.dart';

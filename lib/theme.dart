@@ -36,7 +36,7 @@ TextTheme textTheme() {
 
 AppBarTheme appBarTheme() {
   return const AppBarTheme(
-    color: Colors.white,
+    color: Colors.transparent,
     elevation: 0,
     iconTheme: IconThemeData(color: Colors.black),
   );
