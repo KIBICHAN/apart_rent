@@ -16,6 +16,7 @@ class RentPost{
   final String description;
   final String time;
   final String imgUrl;
+  final String imgLocationUrl;
 
   const RentPost({
     required this.id, 
@@ -35,6 +36,7 @@ class RentPost{
     required this.description, 
     required this.time, 
     required this.imgUrl, 
+    required this.imgLocationUrl
   });
 
   factory RentPost.fromJson(Map<String, dynamic> json){
@@ -55,7 +57,8 @@ class RentPost{
       street: json['street'],
       description: json['description'],
       time: json['time'],
-      imgUrl: json['imgUrl']
+      imgUrl: json['imgUrl'],
+      imgLocationUrl: json['imgLocationUrl']
     );
   }
 }

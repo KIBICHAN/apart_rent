@@ -1,12 +1,20 @@
 import 'package:apart_rent/constants.dart';
 import 'package:apart_rent/models/rent_post.dart';
 import 'package:apart_rent/repository/api/api.dart';
+import 'package:apart_rent/screens/post_detail/post_detail_screen.dart';
 import 'package:apart_rent/size_config.dart';
 import 'package:flutter/material.dart';
+
+class PostId {
+  final int id;
+
+  PostId(this.id);
+}
 
 class AllPosts extends StatefulWidget {
   const AllPosts({Key? key}) : super(key: key);
 
+  @override
   _AllPosts createState() => _AllPosts();
 }
 
@@ -24,7 +32,9 @@ class _AllPosts extends State<AllPosts> {
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
                 return GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, PostDetailScreen.routeName, arguments: PostId(snapshot.data![index].id));
+                  },
                   child: Container(
                     padding: const EdgeInsets.only(left: 5),
                     height: 190,

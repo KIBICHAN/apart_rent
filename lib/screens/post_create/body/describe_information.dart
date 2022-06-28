@@ -57,12 +57,13 @@ class _DescribeInformation extends State<DescribeInformation> {
     final snapshot = await uploadTask!.whenComplete(() {});
 
     final urlDownload = await snapshot.ref.getDownloadURL();
-    print('Download link: $urlDownload');
+    //print('Download link: $urlDownload'); //Debug only
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      alignment: Alignment.center,
       child: SizedBox(
         width: double.infinity,
         child: Padding(
