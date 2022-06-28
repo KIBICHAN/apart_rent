@@ -34,6 +34,10 @@ const String kNamelNullError = "Please Enter your name";
 const String kPhoneNumberNullError = "Please Enter your phone number";
 const String kAddressNullError = "Please Enter your address";
 
+const String vinhomeLogo = 'assets/images/vinhome.jpg';
+
+const kRadius = 0.0;
+
 final otpInputDecoration = InputDecoration(
   contentPadding:
       EdgeInsets.symmetric(vertical: getProportionateScreenWidth(15)),
@@ -53,29 +57,110 @@ final List<String> imgList = [
   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdXNSVQbo22GE8Dgsiua5yjxSy_9HUfIvT-j2swIxNnVSn1h9nm6mEjzm9i3Pqf3XRlyY&usqp=CAU',
   'https://cdn.chotot.com/admincentre/uVbfwAE_XM6BAjZt8V2zK6fHCo0IEFDSUEOEIinvRCg/preset:raw/plain/4529f277e51fb656b6649b799d1ef1e3-2767832951337357203.jpg',
   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQ15xl2aZAIVGlvay1C7vz2Bk7N213NlH9sn9L4F2pIuMUdQ11DoNTlVNHhLokUJfCZmg&usqp=CAU'
-  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe7tF4xKlJKSgyKSfU1TegPJQHrsXSuPbK94bCOaWa5zMlPb_joHDmC3sGOneIPQMd-6A&usqp=CAU'
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe7tF4xKlJKSgyKSfU1TegPJQHrsXSuPbK94bCOaWa5zMlPb_joHDmC3sGOneIPQMd-6A&usqp=CAU'
 ];
 
-List<String> city = ["Bà Rịa", "Bạc Liêu", "Bảo Lộc", "Bắc Giang", "Bắc Kạn", "Bắc Ninh", "Bến Tre", "Biên Hòa", "Buôn Ma Thuột", "Cà Mau", "Cam Ranh"
-, "Cao Bằng", "Cao Lãnh", "Cẩm Phả", "Châu Đốc", "Đà Lạt", "Điện Biên Phủ", "Đông Hà", "Đồng Hới", "Đồng Xoài", "Hà Giang", "Hạ Long", "Hà Tiên", "Hà Tĩnh"
-,"Hải Dương", "Hòa Bình", "Hội An", "Huế", "Hưng Yên", "Kon Tum", "Lai Châu", "Lạng Sơn", "Lào Cai", "Long Xuyên", "Móng Cái", "Mỹ Tho", "Nam Định"
-,"Nha Trang", "Ninh Bình", "Phan Rang - Tháp Chàm", "Phan Thiết", "Phủ Lý", "Phúc Yên", "Pleiku", "Quảng Ngãi", "Quy Nhơn", "Rạch Giá", "Sa Đéc", "Sầm Sơn"
-,"Sóc Trăng", "Sơn La", "Sông Công", "Tam Điệp", "Tam Kỳ", "Tân An", "Tây Ninh", "Thái Bình", "Thái Nguyên", "Thanh Hóa", "Thủ Dầu Một", "Trà Vinh", "Tuy Hòa"
-,"Tuyên Quang", "Uông Bí", "Vị Thanh", "Việt Trì", "Vinh", "Vĩnh Long", "Vĩnh Yên", "Vũng Tàu", "Yên Bái", "Thuận An", "Dĩ An", "Phú Quốc", "Ngã Bảy"
-,"Long Khánh", "Hồng Ngự", "Gia Nghĩa"
+List<String> city = [
+  "Bà Rịa",
+  "Bạc Liêu",
+  "Bảo Lộc",
+  "Bắc Giang",
+  "Bắc Kạn",
+  "Bắc Ninh",
+  "Bến Tre",
+  "Biên Hòa",
+  "Buôn Ma Thuột",
+  "Cà Mau",
+  "Cam Ranh",
+  "Cao Bằng",
+  "Cao Lãnh",
+  "Cẩm Phả",
+  "Châu Đốc",
+  "Đà Lạt",
+  "Điện Biên Phủ",
+  "Đông Hà",
+  "Đồng Hới",
+  "Đồng Xoài",
+  "Hà Giang",
+  "Hạ Long",
+  "Hà Tiên",
+  "Hà Tĩnh",
+  "Hải Dương",
+  "Hòa Bình",
+  "Hội An",
+  "Huế",
+  "Hưng Yên",
+  "Kon Tum",
+  "Lai Châu",
+  "Lạng Sơn",
+  "Lào Cai",
+  "Long Xuyên",
+  "Móng Cái",
+  "Mỹ Tho",
+  "Nam Định",
+  "Nha Trang",
+  "Ninh Bình",
+  "Phan Rang - Tháp Chàm",
+  "Phan Thiết",
+  "Phủ Lý",
+  "Phúc Yên",
+  "Pleiku",
+  "Quảng Ngãi",
+  "Quy Nhơn",
+  "Rạch Giá",
+  "Sa Đéc",
+  "Sầm Sơn",
+  "Sóc Trăng",
+  "Sơn La",
+  "Sông Công",
+  "Tam Điệp",
+  "Tam Kỳ",
+  "Tân An",
+  "Tây Ninh",
+  "Thái Bình",
+  "Thái Nguyên",
+  "Thanh Hóa",
+  "Thủ Dầu Một",
+  "Trà Vinh",
+  "Tuy Hòa",
+  "Tuyên Quang",
+  "Uông Bí",
+  "Vị Thanh",
+  "Việt Trì",
+  "Vinh",
+  "Vĩnh Long",
+  "Vĩnh Yên",
+  "Vũng Tàu",
+  "Yên Bái",
+  "Thuận An",
+  "Dĩ An",
+  "Phú Quốc",
+  "Ngã Bảy",
+  "Long Khánh",
+  "Hồng Ngự",
+  "Gia Nghĩa"
 ];
 
-List<String> type = [
-  "Bán căn hộ chung cư",
-  "Cho thuê căn hộ chung cư"
+List<String> type = ["Bán căn hộ chung cư", "Cho thuê căn hộ chung cư"];
+
+List<String> apartDirection = [
+  "Đông",
+  "Tây",
+  "Nam",
+  "Bắc",
+  "Đông-Bắc",
+  "Tây-Bắc",
+  "Tây-Nam",
+  "Đông-Nam"
 ];
 
-List<String> apartDirection  = [
-  "Đông", "Tây", "Nam", "Bắc",
-  "Đông-Bắc", "Tây-Bắc", "Tây-Nam", "Đông-Nam"
-];
-
-List<String> balconyDirection  = [
-  "Đông", "Tây", "Nam", "Bắc",
-  "Đông-Bắc", "Tây-Bắc", "Tây-Nam", "Đông-Nam"
+List<String> balconyDirection = [
+  "Đông",
+  "Tây",
+  "Nam",
+  "Bắc",
+  "Đông-Bắc",
+  "Tây-Bắc",
+  "Tây-Nam",
+  "Đông-Nam"
 ];

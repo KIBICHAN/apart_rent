@@ -6,6 +6,7 @@ import 'package:apart_rent/screens/post_manager/post_manager_screen.dart';
 import 'package:apart_rent/screens/profile/profile_screen.dart';
 import 'package:apart_rent/screens/sign_in/sign_in_screen.dart';
 import 'package:apart_rent/screens/sign_up/sign_up_screen.dart';
+import 'package:apart_rent/screens/notification/notification_screen.dart';
 import 'package:flutter/material.dart';
 
 final Map<String, WidgetBuilder> routes = {
@@ -17,4 +18,5 @@ final Map<String, WidgetBuilder> routes = {
   PostCreateScreen.routeName: (context) => const PostCreateScreen(),
   ProfileScreen.routeName: (context) => const ProfileScreen(),
   GoogleNavigator.routeName: (context) => const GoogleNavigator(),
+  NotificationScreen.routeName: (context) => const NotificationScreen(),
 };
