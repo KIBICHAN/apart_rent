@@ -1,4 +1,4 @@
-import 'package:apart_rent/screens/home/home_screen.dart';
+import 'package:apart_rent/screens/post_detail/post_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:apart_rent/screens/about/about_screen.dart';
@@ -12,13 +12,13 @@ class GoogleNavigator extends StatelessWidget {
         body: StreamBuilder(
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot) {
-            if(snapshot.connectionState == ConnectionState.waiting){
+            if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(child: CircularProgressIndicator());
-            }else if(snapshot.hasData){
-              return const HomeScreen();
-            }else if(snapshot.hasError){
+            } else if (snapshot.hasData) {
+              return const PostDetailScreen();
+            } else if (snapshot.hasError) {
               return const Center(child: Text('Something Went Wrong!'));
-            }else{
+            } else {
               return const AboutScreen();
               // MaterialApp(
               //   theme: theme(),
