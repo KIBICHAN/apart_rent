@@ -37,27 +37,27 @@ class CustomBottomNavBar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             IconButton(
-              onPressed: () {
-                Navigator.pushNamed(context, HomeScreen.routeName);
-              },
-              icon: Icon(
-                Icons.home,
-                size: 30,
-                color: MenuState.home == selectedMenu
-                    ? kPrimaryColor
-                    : inActiveIconColor,)
-            ),
+                onPressed: () {
+                  Navigator.pushNamed(context, HomeScreen.routeName);
+                },
+                icon: Icon(
+                  Icons.home,
+                  size: 30,
+                  color: MenuState.home == selectedMenu
+                      ? kPrimaryColor
+                      : inActiveIconColor,
+                )),
             IconButton(
-              onPressed: () {
-                Navigator.pushNamed(context, PostManagerScreen.routeName);
-              },
-              icon: Icon(
-                Icons.manage_search,
-                size: 32,
-                color: MenuState.favourite == selectedMenu
-                    ? kPrimaryColor
-                    : inActiveIconColor,)
-            ),
+                onPressed: () {
+                  Navigator.pushNamed(context, PostManagerScreen.routeName);
+                },
+                icon: Icon(
+                  Icons.manage_search,
+                  size: 32,
+                  color: MenuState.favourite == selectedMenu
+                      ? kPrimaryColor
+                      : inActiveIconColor,
+                )),
             IconButton(
               onPressed: () {
                 Navigator.pushNamed(context, NotificationScreen.routeName);
@@ -67,7 +67,8 @@ class CustomBottomNavBar extends StatelessWidget {
                 size: 30,
                 color: MenuState.notification == selectedMenu
                     ? kPrimaryColor
-                    : inActiveIconColor,),
+                    : inActiveIconColor,
+              ),
               // SvgPicture.asset(
               //   "assets/icons/Bell.svg",
               //   color: MenuState.notification == selectedMenu
@@ -84,7 +85,8 @@ class CustomBottomNavBar extends StatelessWidget {
                 size: 30,
                 color: MenuState.profile == selectedMenu
                     ? kPrimaryColor
-                    : inActiveIconColor,),
+                    : inActiveIconColor,
+              ),
             ),
           ],
         ),

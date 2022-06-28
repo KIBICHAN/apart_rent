@@ -37,6 +37,13 @@
             {
               "client_id": "605919037508-g1653dj3eps1hu5p19qi3re1b6ifkbta.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "605919037508-t0anvs989g6qkd3oc5gj8srqe9fc735n.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.apartrent.apartRent"
+              }
             }
           ]
         }
