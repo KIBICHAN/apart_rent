@@ -18,9 +18,6 @@ class PostDetailScreen extends StatelessWidget {
         preferredSize: const Size.fromHeight(kToolbarHeight),
         child: Container(
           decoration: const BoxDecoration(
-              // borderRadius: BorderRadius.only(
-              //     bottomRight: Radius.circular(8.0),
-              //     bottomLeft: Radius.circular(8.0)),
               color: Colors.transparent,
               boxShadow: [
                 BoxShadow(
@@ -52,6 +49,10 @@ class PostDetailScreen extends StatelessWidget {
         ),
       ),
       body: Body(postId: args.id),
+      floatingActionButton: FloatingActionButton(
+          onPressed: (){},
+          backgroundColor: kPrimaryColor,
+          child: const Icon(Icons.phone),),
     );
   }
 }
