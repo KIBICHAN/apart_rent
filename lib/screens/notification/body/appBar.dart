@@ -22,7 +22,7 @@ class appBar extends StatelessWidget implements PreferredSizeWidget {
         style: TextStyle(color: kPrimaryColor, fontSize: 25),
       ),
       centerTitle: true,
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFFF6F7FB),
       elevation: kRadius,
       automaticallyImplyLeading: automaticallyImplyLeading,
       iconTheme: IconThemeData(color: kPrimaryColor),

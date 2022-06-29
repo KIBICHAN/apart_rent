@@ -14,12 +14,14 @@ class _NotificationPageState extends State<NotificationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFF6F7FB),
       appBar: appBar(
         automaticallyImplyLeading: true,
       ),
       body: Column(
         // ignore: prefer_const_literals_to_create_immutables
         mainAxisAlignment: MainAxisAlignment.center,
+        // ignore: prefer_const_literals_to_create_immutables
         children: [
           Text(
             'Chúc mừng bạn đã thuê thành công!',

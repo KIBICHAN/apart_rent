@@ -15,7 +15,7 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFFF6F7FB),
       appBar: appBar(
         automaticallyImplyLeading: false,
       ),
@@ -25,12 +25,14 @@ class _BodyState extends State<Body> {
           itemCount: 12,
           itemBuilder: (context, index) {
             return notificationTitle(
-              title: 'Thuê thành công',
-              subtitle: 'Cảm ơn quý khách, chúc quý khách một ngày tốt lành',
-            );
+                title: 'Thuê thành công',
+                subtitle: 'Cảm ơn quý khách, chúc quý khách một ngày tốt lành',
+                time: '2m ago');
           },
           separatorBuilder: (context, index) {
-            return Divider();
+            return Divider(
+              color: Colors.transparent,
+            );
           }),
     );
   }
