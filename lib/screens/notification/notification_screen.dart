@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_const
+
 import 'package:apart_rent/bottom_menu.dart';
 import 'package:apart_rent/components/custom_bottom_nav_bar.dart';
 import 'package:apart_rent/screens/notification/body/body.dart';
@@ -12,7 +14,8 @@ class NotificationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: const Body(),
-      bottomNavigationBar: const CustomBottomNavBar(selectedMenu: MenuState.notification),
+      bottomNavigationBar:
+          CustomBottomNavBar(selectedMenu: MenuState.notification),
     );
   }
 }

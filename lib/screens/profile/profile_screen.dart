@@ -13,25 +13,18 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-            automaticallyImplyLeading: false,
-            title: const Text("Settings",
-            style: TextStyle(color: kPrimaryColor, fontSize: 30),
-            ),
-            toolbarTextStyle: Theme.of(context).textTheme.bodyText2,
-            titleTextStyle: Theme.of(context).textTheme.headline6,
-            centerTitle: true,
-            // leading: IconButton(
-            //   onPressed: () {},
-            //   icon: const Icon(
-            //     Icons.arrow_back_ios,
-            //     size: 25,
-            //     color: kPrimaryColor,
-            //   ),
-            // ),
-            actions: const [],
-          ),
+        title: const Text(
+          "Profile",
+          style: TextStyle(color: kPrimaryColor, fontSize: 25),
+        ),
+        toolbarTextStyle: Theme.of(context).textTheme.bodyText2,
+        titleTextStyle: Theme.of(context).textTheme.headline6,
+        centerTitle: true,
+        automaticallyImplyLeading: false,
+      ),
       body: const Body(),
-      bottomNavigationBar: const CustomBottomNavBar(selectedMenu: MenuState.profile),
+      bottomNavigationBar:
+          const CustomBottomNavBar(selectedMenu: MenuState.profile),
     );
   }
 }
