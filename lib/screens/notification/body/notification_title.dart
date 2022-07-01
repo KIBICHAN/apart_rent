@@ -1,6 +1,5 @@
-// ignore_for_file: prefer_const_constructors, camel_case_types
+// ignore_for_file: prefer_const_constructors, camel_case_types, prefer_interpolation_to_compose_strings
 
-import 'package:apart_rent/constants.dart';
 import 'package:apart_rent/screens/notification/body/notificationPage.dart';
 import 'package:flutter/material.dart';
 
@@ -14,21 +13,39 @@ class notificationTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: Container(
-          height: 50.0,
-          width: 50.0,
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage(vinhomeLogo), fit: BoxFit.cover))),
-      title: Text(
-        title,
-        style: TextStyle(color: Colors.black),
+    return Padding(
+      padding: const EdgeInsets.only(
+        left: 15,
+        top: 0,
+        right: 15,
+        bottom: 0,
       ),
-      subtitle: Text(subtitle),
-      onTap: () => Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => NotificationPage())),
-      enabled: true,
+      child: SizedBox(
+        height: 100,
+        child: ListTile(
+          leading: Container(
+            height: 70,
+            width: 70,
+            child: Image.asset('assets/images/vinhome.jpg',
+                width: MediaQuery.of(context).size.width, fit: BoxFit.fill),
+          ),
+          title: Text(
+            title,
+            style: TextStyle(color: Colors.black),
+          ),
+          isThreeLine: true,
+          subtitle: Text(subtitle),
+          onTap: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => NotificationPage())),
+          enabled: true,
+          shape: RoundedRectangleBorder(
+            side:
+                BorderSide(color: Color.fromARGB(255, 233, 227, 227), width: 1),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          tileColor: Colors.white,
+        ),
+      ),
     );
   }
 }
