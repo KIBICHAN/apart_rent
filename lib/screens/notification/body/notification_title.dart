@@ -1,16 +1,14 @@
 // ignore_for_file: prefer_const_constructors, camel_case_types, prefer_interpolation_to_compose_strings
 
-import 'package:apart_rent/constants.dart';
 import 'package:apart_rent/screens/notification/body/notificationPage.dart';
 import 'package:flutter/material.dart';
 
 class notificationTitle extends StatelessWidget {
-  final String title, subtitle, time;
+  final String title, subtitle;
   const notificationTitle({
     Key? key,
     required this.title,
     required this.subtitle,
-    required this.time,
   }) : super(key: key);
 
   @override
@@ -36,10 +34,7 @@ class notificationTitle extends StatelessWidget {
             style: TextStyle(color: Colors.black),
           ),
           isThreeLine: true,
-          subtitle: Text(subtitle +
-              "\n" +
-              "                                             " +
-              time),
+          subtitle: Text(subtitle),
           onTap: () => Navigator.of(context).push(
               MaterialPageRoute(builder: (context) => NotificationPage())),
           enabled: true,

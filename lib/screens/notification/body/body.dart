@@ -25,9 +25,8 @@ class _BodyState extends State<Body> {
           itemCount: 12,
           itemBuilder: (context, index) {
             return notificationTitle(
-                title: 'Thuê thành công',
-                subtitle: 'Cảm ơn quý khách, chúc quý khách một ngày tốt lành',
-                time: '2m ago');
+                title: "Thuê thành công",
+                subtitle: 'Cảm ơn quý khách, chúc quý khách một ngày tốt lành');
           },
           separatorBuilder: (context, index) {
             return Divider(
