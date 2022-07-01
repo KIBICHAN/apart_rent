@@ -13,8 +13,8 @@ Future<List<RentPost>> fetchAllData() async {
   }
 }
 
-Future<RentPost> fetchData() async {
-  final response = await http.get(Uri.parse("$apiUrl?id=1"));
+Future<RentPost> fetchData(int id) async {
+  final response = await http.get(Uri.parse("$apiUrl?id=$id"));
   if(response.statusCode == 200){
     return RentPost.fromJson(jsonDecode(response.body));
   }else{

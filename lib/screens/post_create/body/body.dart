@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);
 
+  @override
   _Body createState() => _Body();
 }
 
@@ -46,7 +47,7 @@ class _Body extends State<Body> {
             _activeStepIndex += 1;
           });
         } else {
-          print('Submited');
+          //print('Submited');
         }
       },
       onStepCancel: () {
@@ -65,6 +66,7 @@ class _Body extends State<Body> {
       controlsBuilder: (context, details) {
         final isLastStep = _activeStepIndex == stepList().length - 1;
         return Container(
+          alignment: Alignment.center,
           child: Row(
             children: [
               Expanded(

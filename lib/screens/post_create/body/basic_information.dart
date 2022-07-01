@@ -10,6 +10,7 @@ class BasicInformation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      alignment: Alignment.center,
       child: SizedBox(
         width: double.infinity,
         child: Padding(
