@@ -1,18 +1,18 @@
 import 'package:apart_rent/constants.dart';
 import 'package:apart_rent/screens/post_detail/body/body.dart';
-import 'package:apart_rent/screens/post_manager/body/all_posts.dart';
+import 'package:apart_rent/screens/post_manager/body/posts_waiting_for_approval.dart';
 
 import 'package:flutter/material.dart';
 
-class PostDetailScreen extends StatelessWidget {
-  static String routeName = "/detail";
-  const PostDetailScreen({
+class WaitingDetailScreen extends StatelessWidget {
+  static String routeName = "/test";
+  const WaitingDetailScreen({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context)!.settings.arguments as PostId;
+    final args = ModalRoute.of(context)!.settings.arguments as PostWaitingId;
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: PreferredSize(

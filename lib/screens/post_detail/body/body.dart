@@ -1,8 +1,7 @@
 import 'package:apart_rent/components/custom_detail_post_text.dart';
 import 'package:apart_rent/components/custom_text.dart';
-import 'package:apart_rent/components/item_card.dart';
 import 'package:apart_rent/constants.dart';
-import 'package:apart_rent/models/rent_post.dart';
+import 'package:apart_rent/models/post.dart';
 import 'package:apart_rent/repository/api/api.dart';
 import 'package:apart_rent/size_config.dart';
 import 'package:flutter/material.dart';
@@ -16,10 +15,10 @@ class Body extends StatefulWidget {
 }
 
 class _Body extends State<Body> {
-  Future<RentPost>? futurePost;
+  Future<Post>? futurePost;
 
   buildFutureData(BuildContext context) {
-    return FutureBuilder<RentPost>(
+    return FutureBuilder<Post>(
       future: futurePost,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
@@ -35,7 +34,7 @@ class _Body extends State<Body> {
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           fit: BoxFit.cover,
-                          image: NetworkImage(snapshot.data!.imgUrl),
+                          image: NetworkImage((snapshot.data!.apartment!.apartmentImgUrl).toString()),
                         ),
                       ),
                     ),
@@ -85,14 +84,14 @@ class _Body extends State<Body> {
                       children: <Widget>[
                         SizedBox(height: getProportionateScreenHeight(10)),
                         CustomText(
-                          text: snapshot.data!.title,
+                          text: (snapshot.data!.title).toString(),
                           size: 18,
                           color: Colors.black,
-                          maxline: 2,
+                          maxline: 3,
                         ),
                         SizedBox(height: getProportionateScreenWidth(5)),
                         CustomText(
-                            text: snapshot.data!.price,
+                            text: ("${snapshot.data!.price} Triệu/Tháng").toString(),
                             size: 18,
                             color: Colors.green,
                             maxline: 1),
@@ -106,10 +105,10 @@ class _Body extends State<Body> {
                         Container(
                           margin: const EdgeInsets.only(left: 10),
                           child: CustomText(
-                              text: snapshot.data!.description,
+                              text: (snapshot.data!.description).toString(),
                               size: 18,
                               color: Colors.black,
-                              maxline: 20),
+                              maxline: 30),
                         ),
                         SizedBox(height: getProportionateScreenWidth(20)),
                         const CustomText(
@@ -125,7 +124,7 @@ class _Body extends State<Body> {
                             image: DecorationImage(
                               fit: BoxFit.cover,
                               image:
-                                  NetworkImage(snapshot.data!.imgLocationUrl),
+                                  NetworkImage((snapshot.data!.apartment!.building!.locationImgUrl).toString()),
                             ),
                           ),
                         ),
@@ -141,10 +140,18 @@ class _Body extends State<Body> {
                           child: Column(
                             children: [
                               CustomDetailPostText(
+                                  titleSection: "Loại bài đăng: ",
+                                  titleSize: 17,
+                                  titleColor: kSecondaryColor,
+                                  contentSection: (snapshot.data!.postType!.typeDescription).toString(),
+                                  contentSize: 17,
+                                  contentColor: Colors.black,
+                                  maxline: 1),
+                              CustomDetailPostText(
                                   titleSection: "Diện tích: ",
                                   titleSize: 17,
                                   titleColor: kSecondaryColor,
-                                  contentSection: snapshot.data!.area,
+                                  contentSection: ("${snapshot.data!.apartment!.area} m²").toString(),
                                   contentSize: 17,
                                   contentColor: Colors.black,
                                   maxline: 1),
@@ -154,7 +161,8 @@ class _Body extends State<Body> {
                                   titleSize: 17,
                                   titleColor: kSecondaryColor,
                                   contentSection:
-                                      "Đường ${snapshot.data!.street}, Phường ${snapshot.data!.commune}, ${snapshot.data!.district}, Thành phố ${snapshot.data!.city}",
+                                      // "Đường ${snapshot.data!.street}, Phường ${snapshot.data!.commune}, ${snapshot.data!.district}, Thành phố ${snapshot.data!.city}",
+                                      (snapshot.data!.apartment!.building!.location).toString(),
                                   contentSize: 17,
                                   contentColor: Colors.black,
                                   maxline: 3),
@@ -163,7 +171,7 @@ class _Body extends State<Body> {
                                   titleSection: "Hướng nhà: ",
                                   titleSize: 17,
                                   titleColor: kSecondaryColor,
-                                  contentSection: snapshot.data!.directHouse,
+                                  contentSection: (snapshot.data!.apartment!.houseDirection).toString(),
                                   contentSize: 17,
                                   contentColor: Colors.black,
                                   maxline: 1),
@@ -172,7 +180,7 @@ class _Body extends State<Body> {
                                   titleSection: "Hướng ban công: ",
                                   titleSize: 17,
                                   titleColor: kSecondaryColor,
-                                  contentSection: snapshot.data!.directBalcony,
+                                  contentSection: (snapshot.data!.apartment!.balconyDirection).toString(),
                                   contentSize: 17,
                                   contentColor: Colors.black,
                                   maxline: 1),
@@ -182,7 +190,7 @@ class _Body extends State<Body> {
                                   titleSize: 17,
                                   titleColor: kSecondaryColor,
                                   contentSection:
-                                      (snapshot.data!.numBedroom).toString(),
+                                      (snapshot.data!.apartment!.numberOfBedroom).toString(),
                                   contentSize: 17,
                                   contentColor: Colors.black,
                                   maxline: 1),
@@ -192,7 +200,7 @@ class _Body extends State<Body> {
                                   titleSize: 17,
                                   titleColor: kSecondaryColor,
                                   contentSection:
-                                      (snapshot.data!.numBathroom).toString(),
+                                      (snapshot.data!.apartment!.numberOfBathroom).toString(),
                                   contentSize: 17,
                                   contentColor: Colors.black,
                                   maxline: 1),
@@ -230,7 +238,7 @@ class _Body extends State<Body> {
                                   image: DecorationImage(
                                     fit: BoxFit.cover,
                                     image: NetworkImage(
-                                        snapshot.data!.imgLocationUrl),
+                                        (snapshot.data!.apartment!.building!.buildingImgUrl).toString()),
                                   ),
                                 ),
                               ),
@@ -239,15 +247,15 @@ class _Body extends State<Body> {
                               padding: const EdgeInsets.symmetric(vertical: 15),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
+                                children: [
                                   CustomText(
-                                    text: "Bcins Green View",
+                                    text: (snapshot.data!.apartment!.building!.buildingName).toString(),
                                     size: 21,
                                     color: Colors.blue,
                                     maxline: 2,
                                   ),
                                   CustomText(
-                                    text: "Tap doan vingroup",
+                                    text: (snapshot.data!.apartment!.building!.corporationName).toString(),
                                     size: 17,
                                     color: Colors.black,
                                     maxline: 2,
@@ -287,7 +295,7 @@ class _Body extends State<Body> {
                                 width: 80,
                                 child: CircleAvatar(
                                   backgroundImage:
-                                      NetworkImage(snapshot.data!.imgUrl),
+                                      NetworkImage((snapshot.data!.owner!.ownerImgUrl).toString()),
                                 ),
                               ),
                             ),
@@ -295,21 +303,21 @@ class _Body extends State<Body> {
                               padding: const EdgeInsets.symmetric(vertical: 15),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
+                                children: [
                                   CustomText(
-                                    text: "Tue Ngan",
+                                    text: (snapshot.data!.owner!.name).toString(),
                                     size: 18,
                                     color: Colors.black,
                                     maxline: 2,
                                   ),
                                   CustomText(
-                                    text: "0343161571",
+                                    text: (snapshot.data!.owner!.phone).toString(),
                                     size: 18,
                                     color: Colors.black,
                                     maxline: 2,
                                   ),
                                   CustomText(
-                                    text: "TueNgan@mail.com",
+                                    text: (snapshot.data!.owner!.email).toString(),
                                     size: 18,
                                     color: Colors.black,
                                     maxline: 2,
