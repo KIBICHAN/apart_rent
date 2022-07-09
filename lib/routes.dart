@@ -3,6 +3,7 @@ import 'package:apart_rent/screens/about/about_screen.dart';
 import 'package:apart_rent/screens/home/home_screen.dart';
 import 'package:apart_rent/screens/post_create/post_create_screen.dart';
 import 'package:apart_rent/screens/post_detail/post_detail_screen.dart';
+import 'package:apart_rent/screens/post_detail/waiting_detail_screen.dart';
 import 'package:apart_rent/screens/post_manager/post_manager_screen.dart';
 import 'package:apart_rent/screens/profile/profile_screen.dart';
 import 'package:apart_rent/screens/sign_in/sign_in_screen.dart';
@@ -21,4 +22,5 @@ final Map<String, WidgetBuilder> routes = {
   ProfileScreen.routeName: (context) => const ProfileScreen(),
   GoogleNavigator.routeName: (context) => const GoogleNavigator(),
   NotificationScreen.routeName: (context) => const NotificationScreen(),
+  WaitingDetailScreen.routeName: (context) => const WaitingDetailScreen()
 };

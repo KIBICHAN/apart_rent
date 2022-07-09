@@ -1,12 +1,12 @@
 import 'package:apart_rent/constants.dart';
-import 'package:apart_rent/models/rent_post.dart';
+import 'package:apart_rent/models/listpost.dart';
 import 'package:apart_rent/repository/api/api.dart';
 import 'package:apart_rent/screens/post_detail/post_detail_screen.dart';
 import 'package:apart_rent/size_config.dart';
 import 'package:flutter/material.dart';
 
 class PostId {
-  final int id;
+  final int? id;
 
   PostId(this.id);
 }
@@ -19,10 +19,14 @@ class AllPosts extends StatefulWidget {
 }
 
 class _AllPosts extends State<AllPosts> {
-  Future<List<RentPost>>? futureListPost;
+  Future<List<ListPost>>? futureListPost;
+  AsyncSnapshot<List<ListPost>>? listPost;
+  String searchString = "";
+  int id = 1;
+  final controller = TextEditingController();
 
   buildFutureAllData(BuildContext context) {
-    return FutureBuilder<List<RentPost>>(
+    return FutureBuilder<List<ListPost>>(
       future: futureListPost,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
@@ -31,9 +35,10 @@ class _AllPosts extends State<AllPosts> {
               shrinkWrap: true,
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
-                return GestureDetector(
+                return snapshot.data![index].title!.contains(searchString) ? GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, PostDetailScreen.routeName, arguments: PostId(snapshot.data![index].id));
+                    Navigator.pushNamed(context, PostDetailScreen.routeName,
+                        arguments: PostId(snapshot.data![index].postId));
                   },
                   child: Container(
                     padding: const EdgeInsets.only(left: 5),
@@ -78,8 +83,9 @@ class _AllPosts extends State<AllPosts> {
                                 borderRadius: BorderRadius.circular(5.0),
                                 image: DecorationImage(
                                   fit: BoxFit.fill,
-                                  image: NetworkImage(
-                                      snapshot.data![index].imgUrl),
+                                  image: NetworkImage((snapshot.data![index]
+                                          .apartment!.apartmentImgUrl)
+                                      .toString()),
                                 ),
                               ),
                             ),
@@ -97,7 +103,10 @@ class _AllPosts extends State<AllPosts> {
                                 Container(
                                   alignment: Alignment.centerLeft,
                                   child: Text(
-                                    snapshot.data![index].title,
+                                    (snapshot.data![index].title).toString(),
+                                    softWrap: true,
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
                                     style: const TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.w900,
@@ -111,7 +120,8 @@ class _AllPosts extends State<AllPosts> {
                                     Container(
                                       alignment: Alignment.topLeft,
                                       child: Text(
-                                        snapshot.data![index].price,
+                                        ("${snapshot.data![index].price} tr/th")
+                                            .toString(),
                                         style: const TextStyle(
                                           fontSize: 12,
                                           fontWeight: FontWeight.w900,
@@ -127,26 +137,12 @@ class _AllPosts extends State<AllPosts> {
                                     Container(
                                       alignment: Alignment.topLeft,
                                       child: Text(
-                                        snapshot.data![index].area,
+                                        ("${snapshot.data![index].apartment!.area} m²")
+                                            .toString(),
                                         style: const TextStyle(
                                           fontSize: 12,
                                           fontWeight: FontWeight.w900,
                                           color: Colors.black,
-                                        ),
-                                      ),
-                                    ),
-                                    const Padding(
-                                      padding:
-                                          EdgeInsets.only(left: 3, right: 3),
-                                      child: Text('-'),
-                                    ),
-                                    Container(
-                                      alignment: Alignment.topLeft,
-                                      child: Text(
-                                        "${snapshot.data![index].district}, ${snapshot.data![index].city}",
-                                        style: const TextStyle(
-                                          fontSize: 12,
-                                          color: kTextColor,
                                         ),
                                       ),
                                     ),
@@ -167,7 +163,8 @@ class _AllPosts extends State<AllPosts> {
                                     Container(
                                       alignment: Alignment.topLeft,
                                       child: Text(
-                                        (snapshot.data![index].numBedroom)
+                                        (snapshot.data![index].apartment!
+                                                .numberOfBedroom)
                                             .toString(),
                                         style: const TextStyle(
                                           fontSize: 12,
@@ -191,7 +188,8 @@ class _AllPosts extends State<AllPosts> {
                                     Container(
                                       alignment: Alignment.topLeft,
                                       child: Text(
-                                        (snapshot.data![index].numBathroom)
+                                        (snapshot.data![index].apartment!
+                                                .numberOfBathroom)
                                             .toString(),
                                         style: const TextStyle(
                                           fontSize: 12,
@@ -208,7 +206,8 @@ class _AllPosts extends State<AllPosts> {
                                         3, // space between underline and text
                                   ),
                                   child: Text(
-                                    snapshot.data![index].description,
+                                    (snapshot.data![index].description)
+                                        .toString(),
                                     softWrap: true,
                                     maxLines: 2,
                                     overflow: TextOverflow.ellipsis,
@@ -236,7 +235,8 @@ class _AllPosts extends State<AllPosts> {
                                     ),
                                   ),
                                   child: Text(
-                                    snapshot.data![index].time,
+                                    (snapshot.data![index].dateCreate)
+                                        .toString(),
                                     style: const TextStyle(
                                       fontSize: 10,
                                       color: kTextColor,
@@ -250,7 +250,7 @@ class _AllPosts extends State<AllPosts> {
                       ],
                     ),
                   ),
-                );
+                ) : Container();
               },
               separatorBuilder: (context, index) {
                 return const SizedBox(
@@ -273,14 +273,49 @@ class _AllPosts extends State<AllPosts> {
   @override
   void initState() {
     super.initState();
-    futureListPost = fetchAllData();
+    //futureListPost = fetchAllData();
+    futureListPost = fetchDataBaseOnStatus(id);
   }
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
-        children: [buildFutureAllData(context)],
+        children: [
+          SizedBox(
+            height: getProportionateScreenHeight(15),
+          ),
+          Container(
+            width: SizeConfig.screenWidth * 0.95,
+            //height: SizeConfig.screenHeight * 0.6,
+            decoration: BoxDecoration(
+              color: kSecondaryColor.withOpacity(0.1),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: TextField(
+              controller: controller,
+              onChanged: (value) {
+                setState((){
+                  searchString = value; 
+                });
+              },
+              decoration: InputDecoration(
+                  contentPadding: EdgeInsets.symmetric(
+                    horizontal: getProportionateScreenWidth(20),
+                    vertical: getProportionateScreenWidth(9),
+                  ),
+                  border: InputBorder.none,
+                  focusedBorder: InputBorder.none,
+                  enabledBorder: InputBorder.none,
+                  hintText: "Search anything",
+                  prefixIcon: const Icon(Icons.search)),
+            ),
+          ),
+          SizedBox(
+            height: getProportionateScreenWidth(10),
+          ),
+          buildFutureAllData(context)
+        ],
       ),
     );
   }
