@@ -16,7 +16,7 @@ class PromoSlider extends StatelessWidget {
         enlargeCenterPage: true,
       ),
       items: imgList.map(
-            (url) {
+        (url) {
           return Stack(
             children: <Widget>[
               Container(
@@ -30,29 +30,6 @@ class PromoSlider extends StatelessWidget {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: const <Widget>[
-                      Text(
-                        "Customer Giftaways",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold),
-                      ),
-                      // Padding(
-                      //   padding: EdgeInsets.symmetric(horizontal: 8.0),
-                      //   child: Text(
-                      //       "Lorem Ipsım Dolar Lorem Ipsım Dolar Lorem Ipsım Dolar",
-                      //       textAlign: TextAlign.left,
-                      //       style: TextStyle(color: Colors.white, fontSize: 10)),
-                      // ),
-                    ],
-                  ),
-                ),
-              )
             ],
           );
         },
@@ -60,4 +37,3 @@ class PromoSlider extends StatelessWidget {
     );
   }
 }
-
