@@ -35,7 +35,7 @@ class _AllPosts extends State<AllPosts> {
               shrinkWrap: true,
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
-                return snapshot.data![index].title!.contains(searchString) ? GestureDetector(
+                return snapshot.data![index].title!.toLowerCase().contains(searchString.toLowerCase()) ? GestureDetector(
                   onTap: () {
                     Navigator.pushNamed(context, PostDetailScreen.routeName,
                         arguments: PostId(snapshot.data![index].postId));
