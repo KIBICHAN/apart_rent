@@ -18,7 +18,7 @@ class WhatNews extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "What's new",
+                "What's new?",
                 style: TextStyle(
                     fontSize: getProportionateScreenWidth(18),
                     color: Colors.black),
@@ -43,21 +43,24 @@ class WhatNews extends StatelessWidget {
           child: Row(
             children: [
               NewsCard(
-                image: "assets/images/new_dog.png", 
-                title: "Gặp người quen: Sủa, Gặp trộm: Vẫy đuôi 👉", 
-                press: (){}),
+                  image: "assets/images/new1.jpg",
+                  title:
+                      "Legacy Central, Khu đô thị phức hợp đẳng cấp quốc tế Bảo Ninh 1",
+                  press: () {}),
               NewsCard(
-                image: "assets/images/new_cat.png", 
-                title: "Khiến chủ nhân hành động như kẻ tôi tớ 👉", 
-                press: (){}),
+                  image: "assets/images/new2.jpg",
+                  title: "Regal Legend Quảng Bình, Phố thương mại châu Âu",
+                  press: () {}),
               NewsCard(
-                image: "assets/images/new_deal.png", 
-                title: "Chương trình Đại hội đại hạ giá sẽ kết vào...", 
-                press: (){}),
+                  image: "assets/images/new3.jpg",
+                  title:
+                      "Richland Residence, do Công ty CP Đầu tư và Phát triển Thuận Lợi làm chủ đầu tư",
+                  press: () {}),
               NewsCard(
-                image: "assets/images/new_momo.png", 
-                title: "HOT: CHỢ TỐT x MOMO - LÊN CHỢ TỐT CHỐT ĐƠN, NHẬN 150K", 
-                press: (){}),
+                  image: "assets/images/new_momo.png",
+                  title:
+                      "HOT: Rent-Ap x MOMO - LÊN CHỢ TỐT CHỐT ĐƠN, NHẬN 150K",
+                  press: () {}),
             ],
           ),
         ),

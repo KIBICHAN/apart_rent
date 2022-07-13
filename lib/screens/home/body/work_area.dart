@@ -18,7 +18,7 @@ class WorkArea extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Work desk for you",
+                "Apartment for you",
                 style: TextStyle(
                     fontSize: getProportionateScreenWidth(18),
                     color: Colors.black),
@@ -43,18 +43,19 @@ class WorkArea extends StatelessWidget {
           child: Row(
             children: [
               ItemCard(
-                category: "Calculator", 
-                image: "assets/images/calculator.png", 
-                numOfBrands: 1, 
-                press: (){}),
+                  category: "MaiLand Hoàng Đồng",
+                  image: "assets/images/apart1.jpg",
+                  numOfBrands: 1,
+                  press: () {}),
               ItemCard(
-                image: "assets/images/analysis.png",
-                category: "Analysis",
+                category: "City Land Park Hills",
+                image: "assets/images/apart2.jpg",
                 numOfBrands: 2,
                 press: () {},
               ),
               SizedBox(width: getProportionateScreenWidth(20)),
-          ],),
+            ],
+          ),
         )
       ],
     );

@@ -1,3 +1,4 @@
-//String apiUrl = "https://87cd70be-c214-4029-abf0-146c9ac68499.mock.pstmn.io/api/Post";
-//String apiUrl = "http://192.168.1.8:7132/api/Post"; //Home
-String apiUrl = "http://10.1.136.187:7132/api/Post"; //Library 10.1.94.198
+//String apiUrl = "https://2f71e130-1352-4d75-9193-9c3feb38245b.mock.pstmn.io/rent-post";
+
+String apiUrl = "https://10.0.2.2:8082/api/Post";
+
