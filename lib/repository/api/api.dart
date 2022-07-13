@@ -32,11 +32,11 @@ Future<List<ListPost>> fetchDataBaseOnStatus(int statusId) async {
   }
 }
 
-Future<List<ListPost>> fetchSearchData(String? searchString) async {
-  final response = await http.get(Uri.parse("$apiUrl/sear/$searchString"));
-  if(response.statusCode == 200){
-    return (jsonDecode(response.body) as List).map((e) => ListPost.fromJson(e)).toList();
+Future<ListPost> deletePost(int id) async {
+  final response = await http.delete(Uri.parse("$apiUrl/$id"));
+  if(response.statusCode == 204){
+    return ListPost.fromJson(jsonDecode(response.body));
   }else{
-    throw Exception('Fail to load API');
+    throw Exception('Fail to load DemoApi');
   }
 }
