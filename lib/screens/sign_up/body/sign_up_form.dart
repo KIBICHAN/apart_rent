@@ -59,7 +59,7 @@ class _SignUpFormState extends State<SignUpForm> {
             height: getProportionateScreenHeight(95),
           ),
           DefaultButton(
-            text: "Sign Up",
+            text: "Đăng ký",
             press: () {
               if(_formKey.currentState!.validate()){
                 _formKey.currentState!.save();
@@ -97,8 +97,8 @@ class _SignUpFormState extends State<SignUpForm> {
       },
       decoration: const InputDecoration(
         contentPadding: EdgeInsets.all(13),
-        labelText: "Email",
-        hintText: "Enter your email",
+        labelText: "E-mail",
+        hintText: "Nhập email của bạn",
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Mail.svg"),
       ),
@@ -128,8 +128,8 @@ class _SignUpFormState extends State<SignUpForm> {
       },
       decoration: const InputDecoration(
         contentPadding: EdgeInsets.all(13),
-          labelText: "Password",
-          hintText: "Enter your password",
+          labelText: "Mật khẩu",
+          hintText: "Nhập mật khẩu của bạn",
           floatingLabelBehavior: FloatingLabelBehavior.always,
           suffixIcon: CustomSurffixIcon(
             svgIcon: "assets/icons/Lock.svg",
@@ -161,8 +161,8 @@ class _SignUpFormState extends State<SignUpForm> {
       },
       decoration: const InputDecoration(
         contentPadding: EdgeInsets.all(13),
-        labelText: "Confirm Password",
-        hintText: "Enter confirm password",
+        labelText: "Xác nhận mật khẩu",
+        hintText: "Nhập mật khẩu xác nhận",
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon: CustomSurffixIcon(
           svgIcon: "assets/icons/Lock.svg",

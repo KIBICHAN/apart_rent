@@ -11,13 +11,14 @@ class DraftPosts extends StatefulWidget{
 }
 
 class _DraftPosts extends State<DraftPosts>{
-Future<List<ListPost>>? futureListPost;
+  Future<List<ListPost>>? futureListPost;
   int id = 3;
 
   buildFutureAllData(BuildContext context) {
     return FutureBuilder<List<ListPost>>(
       future: futureListPost,
       builder: (context, snapshot) {
+        if(snapshot.connectionState == ConnectionState.done){
         if (snapshot.hasData) {
           return ListView.separated(
               physics: const BouncingScrollPhysics(),
@@ -245,6 +246,7 @@ Future<List<ListPost>>? futureListPost;
                 fontSize: 25, fontWeight: FontWeight.w500, color: Colors.green),
           );
         }
+      }
         return const CircularProgressIndicator();
       },
     );
@@ -253,7 +255,6 @@ Future<List<ListPost>>? futureListPost;
   @override
   void initState() {
     super.initState();
-    //futureListPost = fetchAllData();
     futureListPost = fetchDataBaseOnStatus(id);
   }
 

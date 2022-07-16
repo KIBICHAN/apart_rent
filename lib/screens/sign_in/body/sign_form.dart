@@ -55,12 +55,12 @@ class _SignFormState extends State<SignForm>{
                   remember = value;
                 });
               },),
-              const Text("Remember me"),
+              const Text("Lưu mật khẩu."),
               const Spacer(),
               GestureDetector(
                 onTap: (){},
                 child: const Text(
-                  "Forgot Password",
+                  "Quên mật khẩu?",
                   style: TextStyle(decoration: TextDecoration.underline),
                 ),
               ),
@@ -69,7 +69,7 @@ class _SignFormState extends State<SignForm>{
           FormError(errors: errors),
           SizedBox(height: getProportionateScreenHeight(95),),
           DefaultButton(
-            text: "Sign In",
+            text: "Đăng nhập",
             press: (){
               if(_formKey.currentState!.validate()){
                 _formKey.currentState!.save();
@@ -106,8 +106,8 @@ class _SignFormState extends State<SignForm>{
       },
       decoration: const InputDecoration(
         contentPadding: EdgeInsets.all(13),
-        labelText: "Password",
-        hintText: "Enter your password",
+        labelText: "Mật khẩu",
+        hintText: "Nhập mật khẩu của bạn",
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
       ),
@@ -138,8 +138,8 @@ class _SignFormState extends State<SignForm>{
       },
       decoration: const InputDecoration(
         contentPadding: EdgeInsets.all(13),
-        labelText: "Email",
-        hintText: "Enter your email",
+        labelText: "E-mail",
+        hintText: "Nhập email của bạn",
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Mail.svg"),
       ),

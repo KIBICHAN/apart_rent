@@ -23,18 +23,34 @@ class QuestionArea extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Câu hỏi thường gặp",
-                  style: TextStyle(
-                      fontSize: getProportionateScreenWidth(20),
-                      color: Colors.black),
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Các câu hỏi thường gặp:",
+                    style: TextStyle(
+                        fontSize: getProportionateScreenWidth(18),
+                        color: Colors.black),
+                  ),
+                  GestureDetector(
+                    onTap: () {},
+                    child: const Text(
+                      "Xem thêm",
+                      style: TextStyle(
+                        color: kPrimaryColor,
+                        fontSize: 18
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              SizedBox(height: getProportionateScreenWidth(20),),
+              SizedBox(
+                height: getProportionateScreenWidth(20),
+              ),
               GestureDetector(
-                onTap: () {_launchUrl();},
+                onTap: () {
+                  _launchUrl();
+                },
                 child: const Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
@@ -46,7 +62,9 @@ class QuestionArea extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: getProportionateScreenWidth(5),),
+              SizedBox(
+                height: getProportionateScreenWidth(5),
+              ),
               GestureDetector(
                 onTap: () {},
                 child: const Align(
@@ -60,7 +78,9 @@ class QuestionArea extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: getProportionateScreenWidth(5),),
+              SizedBox(
+                height: getProportionateScreenWidth(5),
+              ),
               GestureDetector(
                 onTap: () {},
                 child: const Align(
@@ -73,7 +93,9 @@ class QuestionArea extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: getProportionateScreenWidth(5),),
+              SizedBox(
+                height: getProportionateScreenWidth(5),
+              ),
               GestureDetector(
                 onTap: () {},
                 child: const Align(
@@ -86,7 +108,9 @@ class QuestionArea extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: getProportionateScreenWidth(5),),
+              SizedBox(
+                height: getProportionateScreenWidth(5),
+              ),
               GestureDetector(
                 onTap: () {},
                 child: const Align(
@@ -99,16 +123,6 @@ class QuestionArea extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: getProportionateScreenWidth(15),),
-              GestureDetector(
-                onTap: () {},
-                child: const Text(
-                    "Xem thêm.",
-                    style: TextStyle(
-                      color: kPrimaryColor,
-                    ),
-                  ),
-                ),
             ],
           ),
         ),

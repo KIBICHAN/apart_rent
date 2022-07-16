@@ -18,19 +18,19 @@ class _Body extends State<Body> {
         Step(
           state: _activeStepIndex <= 0 ? StepState.editing : StepState.complete,
           isActive: _activeStepIndex >= 0,
-          title: const Text('Account'),
+          title: const Text('Post'),
           content: const BasicInformation(),
         ),
         Step(
           state: _activeStepIndex <= 1 ? StepState.editing : StepState.complete,
           isActive: _activeStepIndex >= 1,
-          title: const Text('Address'),
+          title: const Text('Apartment'),
           content: const DescribeInformation(),
         ),
         Step(
           state: StepState.complete,
           isActive: _activeStepIndex >= 2,
-          title: const Text('Confirm'),
+          title: const Text('Owner'),
           content: const OwnerInformation(),
         )
       ];

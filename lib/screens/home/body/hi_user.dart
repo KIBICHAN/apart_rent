@@ -21,7 +21,7 @@ class HiUser extends StatelessWidget {
         const SizedBox(width: 10),
         Text(
           'Hi ${user.displayName!}',
-          style: const TextStyle(color: Colors.black, fontSize: 16),
+          style: const TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
         ),
       ],
       ),

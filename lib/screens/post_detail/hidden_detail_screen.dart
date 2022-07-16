@@ -1,21 +1,21 @@
 import 'package:apart_rent/constants.dart';
 import 'package:apart_rent/repository/api/api.dart';
 import 'package:apart_rent/screens/post_detail/body/body.dart';
-import 'package:apart_rent/screens/post_manager/body/all_posts.dart';
+import 'package:apart_rent/screens/post_manager/body/hidden_posts.dart';
 import 'package:apart_rent/screens/post_manager/post_manager_screen.dart';
 
 import 'package:flutter/material.dart';
 
-class PostDetailScreen extends StatelessWidget {
-  static String routeName = "/detail";
-  const PostDetailScreen({
+class HiddenDetailScreen extends StatelessWidget {
+  static String routeName = "/hidden";
+  const HiddenDetailScreen({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context)!.settings.arguments as PostId;
-    int statusId = 4;
+    final args = ModalRoute.of(context)!.settings.arguments as PostHiddenId;
+    int statusId = 1;
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: PreferredSize(
@@ -68,11 +68,11 @@ class PostDetailScreen extends StatelessWidget {
                           value: 0,
                           child: Row(
                             children: const [
-                              Icon(Icons.hide_source, color: kPrimaryColor),
+                              Icon(Icons.done, color: kPrimaryColor),
                               SizedBox(
                                 width: 8,
                               ),
-                              Text('Hide Post',
+                              Text('Activate Post',
                                   style: TextStyle(color: kPrimaryColor))
                             ],
                           ),
@@ -83,14 +83,14 @@ class PostDetailScreen extends StatelessWidget {
                                     context: context,
                                     builder: (BuildContext conntext) {
                                       return AlertDialog(
-                                        title: const Text('Bạn có chắc muốn ẩn bài viết này không?'),
-                                        content: const Text('Bài viết này sẽ được ẩn đi ở mục ẩn tin đăng của bạn!'),
+                                        title: const Text('Bạn sẽ cho phép bài viết hiển thị?'),
+                                        content: const Text('Bài viết này sẽ được hiển thị ở mục quản lý đăng tin của bạn!'),
                                         actions: <Widget>[
                                           TextButton(
                                             onPressed: (){
                                               updateStatusPost(args.id!, statusId);
                                               Navigator.pop(context, true);
-                                              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Bài viết đã được ẩn đi!')));
+                                              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Bài viết đã được mở lại!')));
                                             },
                                             child: const Text('Đồng ý'),
                                           ),
@@ -146,14 +146,6 @@ class PostDetailScreen extends StatelessWidget {
                           },
                         ),
                       ])
-              // IconButton(
-              //   onPressed: () {},
-              //   icon: const Icon(
-              //     Icons.menu,
-              //     size: 25,
-              //     color: kPrimaryColor,
-              //   ),
-              // ),
             ],
           ),
         ),

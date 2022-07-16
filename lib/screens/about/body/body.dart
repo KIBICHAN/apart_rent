@@ -17,15 +17,15 @@ class _BodyState extends State<Body> {
   int currentPage = 0;
   List<Map<String, String>> splashData = [
     {
-      "text": "Welcome to Apart-Re, Helping you become an effective manager!",
+      "text": "Chào mừng bạn đến với Apart-Re, \nỨng dụng giúp bạn trở thành một nhà quản lý hiệu quả!",
       "image": "assets/images/sale.png"
     },
     {
-      "text": "All apartment data is stored and managed on a single system around VietNam",
+      "text": "Tất cả dữ liệu căn hộ được lưu trữ và quản lý \ntrên một hệ thống duy nhất trên khắp Việt Nam.",
       "image": "assets/images/task.png"
     },
     {
-      "text": "Automate processes and optimize your time. \nWork anywhere, same effective",
+      "text": "Tự động hóa các quy trình và tối ưu hóa thời gian của bạn. \nLàm việc mọi nơi, hiệu quả như nhau.",
       "image": "assets/images/research.png"
     },
   ];
@@ -69,7 +69,7 @@ class _BodyState extends State<Body> {
                     ),
                     const Spacer(flex: 3),
                     DefaultButton(
-                      text: "Continue",
+                      text: "Tiếp tục",
                       press: () {
                         Navigator.pushNamed(context, SignInScreen.routeName);
                       },

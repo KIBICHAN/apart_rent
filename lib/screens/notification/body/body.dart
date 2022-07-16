@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:apart_rent/screens/notification/body/appBar.dart';
+import 'package:apart_rent/screens/notification/body/background.dart';
 import 'package:apart_rent/screens/notification/body/notification_title.dart';
 import 'package:flutter/material.dart';
 
@@ -19,20 +20,23 @@ class _BodyState extends State<Body> {
       appBar: appBar(
         automaticallyImplyLeading: false,
       ),
-      body: ListView.separated(
+      body: Background(
+      child: ListView.separated(
           physics: ClampingScrollPhysics(),
-          padding: EdgeInsets.zero,
-          itemCount: 12,
+          padding: EdgeInsets.only(bottom: 10),
+          itemCount: 8,
           itemBuilder: (context, index) {
             return notificationTitle(
-                title: "Thuê thành công",
-                subtitle: 'Cảm ơn quý khách, chúc quý khách một ngày tốt lành');
+                title: "Bài viết đã được duyệt",
+                subtitle: "Chúc mừng, bây giờ mọi người có thể xem bài viết của bạn!",
+                trailing: "15 phút trước.",);
           },
           separatorBuilder: (context, index) {
-            return Divider(
-              color: Colors.transparent,
+            return SizedBox(
+              height: 1,
             );
           }),
+      ),
     );
   }
 }

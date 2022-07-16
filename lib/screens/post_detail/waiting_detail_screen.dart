@@ -5,7 +5,7 @@ import 'package:apart_rent/screens/post_manager/body/posts_waiting_for_approval.
 import 'package:flutter/material.dart';
 
 class WaitingDetailScreen extends StatelessWidget {
-  static String routeName = "/test";
+  static String routeName = "/waiting";
   const WaitingDetailScreen({
     Key? key,
   }) : super(key: key);

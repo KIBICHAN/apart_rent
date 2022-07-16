@@ -18,7 +18,7 @@ class WhatNews extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "What's new?",
+                "Tin gì mới?",
                 style: TextStyle(
                     fontSize: getProportionateScreenWidth(18),
                     color: Colors.black),
@@ -26,9 +26,10 @@ class WhatNews extends StatelessWidget {
               GestureDetector(
                 onTap: () {},
                 child: const Text(
-                  "See More",
+                  "Xem thêm",
                   style: TextStyle(
                     color: kPrimaryColor,
+                    fontSize: 18
                   ),
                 ),
               ),

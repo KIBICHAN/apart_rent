@@ -27,6 +27,7 @@ class _PostsWaitingForApproval extends State<PostsWaitingForApproval>{
     return FutureBuilder<List<ListPost>>(
       future: futureListPost,
       builder: (context, snapshot) {
+        if(snapshot.connectionState == ConnectionState.done){
         if (snapshot.hasData) {
           return ListView.separated(
               physics: const BouncingScrollPhysics(),
@@ -254,6 +255,7 @@ class _PostsWaitingForApproval extends State<PostsWaitingForApproval>{
                 fontSize: 25, fontWeight: FontWeight.w500, color: Colors.green),
           );
         }
+      }
         return const CircularProgressIndicator();
       },
     );
@@ -262,7 +264,6 @@ class _PostsWaitingForApproval extends State<PostsWaitingForApproval>{
   @override
   void initState() {
     super.initState();
-    //futureListPost = fetchAllData();
     futureListPost = fetchDataBaseOnStatus(id);
   }
 
