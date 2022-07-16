@@ -1,14 +1,17 @@
 // ignore_for_file: prefer_const_constructors, camel_case_types, prefer_interpolation_to_compose_strings
 
 import 'package:apart_rent/screens/notification/body/notificationPage.dart';
+import 'package:apart_rent/size_config.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class notificationTitle extends StatelessWidget {
-  final String title, subtitle;
+  final String title, subtitle, trailing;
   const notificationTitle({
     Key? key,
     required this.title,
-    required this.subtitle,
+    required this.subtitle, 
+    required this.trailing,
   }) : super(key: key);
 
   @override
@@ -21,13 +24,18 @@ class notificationTitle extends StatelessWidget {
         bottom: 0,
       ),
       child: SizedBox(
-        height: 100,
-        child: ListTile(
-          leading: Container(
-            height: 70,
-            width: 70,
-            child: Image.asset('assets/images/vinhome.jpg',
-                width: MediaQuery.of(context).size.width, fit: BoxFit.fill),
+        height: 90,
+        child: 
+        Card(child: 
+        ListTile(
+          leading: SizedBox(
+            height: 50,
+            width: 50,
+            child: SvgPicture.asset(
+              "assets/icons/Bell.svg",
+              height: getProportionateScreenWidth(8),
+              width: getProportionateScreenWidth(8),
+            ),
           ),
           title: Text(
             title,
@@ -35,15 +43,12 @@ class notificationTitle extends StatelessWidget {
           ),
           isThreeLine: true,
           subtitle: Text(subtitle),
+          trailing: Text(trailing),
           onTap: () => Navigator.of(context).push(
               MaterialPageRoute(builder: (context) => NotificationPage())),
           enabled: true,
-          shape: RoundedRectangleBorder(
-            side:
-                BorderSide(color: Color.fromARGB(255, 233, 227, 227), width: 1),
-            borderRadius: BorderRadius.circular(10),
-          ),
           tileColor: Colors.white,
+        ),
         ),
       ),
     );

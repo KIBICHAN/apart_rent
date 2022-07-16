@@ -144,18 +144,7 @@ List<String> city = [
 
 List<String> type = ["Bán căn hộ chung cư", "Cho thuê căn hộ chung cư"];
 
-List<String> apartDirection = [
-  "Đông",
-  "Tây",
-  "Nam",
-  "Bắc",
-  "Đông-Bắc",
-  "Tây-Bắc",
-  "Tây-Nam",
-  "Đông-Nam"
-];
-
-List<String> balconyDirection = [
+List<String> direction = [
   "Đông",
   "Tây",
   "Nam",

@@ -18,7 +18,7 @@ class WorkArea extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Apartment for you",
+                "Các dự án bạn có thể quan tâm?",
                 style: TextStyle(
                     fontSize: getProportionateScreenWidth(18),
                     color: Colors.black),
@@ -26,9 +26,10 @@ class WorkArea extends StatelessWidget {
               GestureDetector(
                 onTap: () {},
                 child: const Text(
-                  "See More",
+                  "Xem thêm",
                   style: TextStyle(
                     color: kPrimaryColor,
+                    fontSize: 18
                   ),
                 ),
               ),
@@ -43,12 +44,12 @@ class WorkArea extends StatelessWidget {
           child: Row(
             children: [
               ItemCard(
-                  category: "MaiLand Hoàng Đồng",
+                  category: "Dự án khu đô thị Đông Tăng Long",
                   image: "assets/images/apart1.jpg",
                   numOfBrands: 1,
                   press: () {}),
               ItemCard(
-                category: "City Land Park Hills",
+                category: "Dự án khu đô thị Sala",
                 image: "assets/images/apart2.jpg",
                 numOfBrands: 2,
                 press: () {},

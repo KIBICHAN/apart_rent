@@ -1,4 +1,5 @@
 import 'package:apart_rent/provider/google_sign_in_service.dart';
+import 'package:apart_rent/screens/profile/body/background.dart';
 import 'package:apart_rent/screens/profile/body/profileMenu.dart';
 import 'package:apart_rent/screens/profile/body/profilePic.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,9 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return Background(
+      child:
+    SingleChildScrollView(
       padding: const EdgeInsets.symmetric(vertical: 20),
       child: Column(
         children: [
@@ -19,11 +22,6 @@ class Body extends StatelessWidget {
             text: "My Account",
             icon: "assets/icons/User Icon.svg",
             press: () => {},
-          ),
-          ProfileMenu(
-            text: "Notifications",
-            icon: "assets/icons/Bell.svg",
-            press: () {},
           ),
           ProfileMenu(
             text: "Settings",
@@ -47,6 +45,7 @@ class Body extends StatelessWidget {
           ),
         ],
       ),
+    ),
     );
   }
 }

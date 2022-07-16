@@ -9,7 +9,7 @@ class SignInScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Sign In"),
+        title: const Text("Đăng nhập"),
         toolbarTextStyle: Theme.of(context).textTheme.bodyText2,
         titleTextStyle: Theme.of(context).textTheme.headline6
       ),

@@ -27,7 +27,7 @@ class Body extends StatelessWidget {
                     height: SizeConfig.screenHeight * 0.04,
                   ),
                   Text(
-                    "Welcome Back",
+                    "Chào mừng trở lại",
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: getProportionateScreenWidth(28),
@@ -35,7 +35,7 @@ class Body extends StatelessWidget {
                     ),
                   ),
                   const Text(
-                    "Sign in with your email and password \nor continue with social media",
+                    "Đăng nhập bằng email và mật khẩu của bạn \nhoặc sử dụng mạng xã hội",
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(
