@@ -1,9 +1,21 @@
 import 'dart:convert';
 
 import 'package:apart_rent/models/listpost.dart';
+import 'package:apart_rent/models/notification.dart';
 import 'package:apart_rent/models/post.dart';
 import 'package:apart_rent/repository/api/apiUrl.dart';
 import 'package:http/http.dart' as http;
+
+Future<List<Notificationn>> fetchAllNotification() async {
+  final response = await http.get(Uri.parse(apiNotification));
+  if (response.statusCode == 200) {
+    return (jsonDecode(response.body) as List)
+        .map((e) => Notificationn.fromJson(e))
+        .toList();
+  } else {
+    throw Exception('Fail to load API');
+  }
+}
 
 Future<List<ListPost>> fetchAllData() async {
   final response = await http.get(Uri.parse(apiUrl));
