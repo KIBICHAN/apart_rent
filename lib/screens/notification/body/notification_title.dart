@@ -39,10 +39,14 @@ class notificationTitle extends StatelessWidget {
           ),
           title: Text(
             title,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
             style: TextStyle(color: Colors.black),
           ),
           isThreeLine: true,
-          subtitle: Text(subtitle),
+          subtitle: Text(subtitle,
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,),
           trailing: Text(trailing),
           onTap: () => Navigator.of(context).push(
               MaterialPageRoute(builder: (context) => NotificationPage())),
