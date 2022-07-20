@@ -5,6 +5,7 @@ import 'package:apart_rent/models/post.dart';
 import 'package:apart_rent/repository/api/api.dart';
 import 'package:apart_rent/size_config.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class Body extends StatefulWidget {
   final int postId;
@@ -325,10 +326,15 @@ class _Body extends State<Body> {
                                   height: 80,
                                   width: 80,
                                   child: CircleAvatar(
-                                    backgroundImage: NetworkImage(
-                                        (snapshot.data!.owner!.ownerImgUrl)
-                                            .toString()),
-                                  ),
+                                      backgroundColor: Colors.white,
+                                      backgroundImage: snapshot
+                                                  .data!.owner!.ownerImgUrl !=
+                                              ""
+                                          ? NetworkImage((snapshot
+                                                  .data!.owner!.ownerImgUrl)
+                                              .toString())
+                                          : const NetworkImage(
+                                              'https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png')),
                                 ),
                               ),
                               Padding(

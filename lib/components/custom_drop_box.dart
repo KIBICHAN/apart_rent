@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 class CustomDropBox extends StatefulWidget {
+  final Function(String?) onChanged;
+  final String? value;
   final List<String> list;
   final String label;
   final String hint;
-  const CustomDropBox({Key? key, required this.list, required this.hint, required this.label})
+  const CustomDropBox({Key? key, required this.list, required this.hint, required this.label, required this.onChanged, required this.value})
       : super(key: key);
 
   @override
@@ -12,15 +14,6 @@ class CustomDropBox extends StatefulWidget {
 }
 
 class _DropBox extends State<CustomDropBox> {
-  String? _dropdownValue;
-
-  void dropdownCallback(String? selectedValue) {
-    if (selectedValue is String) {
-      setState(() {
-        _dropdownValue = selectedValue;
-      });
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,8 +33,8 @@ class _DropBox extends State<CustomDropBox> {
         items: widget.list.map<DropdownMenuItem<String>>((String value) {
           return DropdownMenuItem<String>(value: value, child: Text(value, style: const TextStyle(fontSize: 17)));
         }).toList(),
-        value: _dropdownValue,
-        onChanged: dropdownCallback,
+        value: widget.value,
+        onChanged: widget.onChanged,
       ),
     );
   }

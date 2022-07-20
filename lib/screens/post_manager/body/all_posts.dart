@@ -4,6 +4,7 @@ import 'package:apart_rent/repository/api/api.dart';
 import 'package:apart_rent/screens/post_detail/post_detail_screen.dart';
 import 'package:apart_rent/size_config.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class PostId {
   final int? id;
@@ -36,6 +37,7 @@ class _AllPosts extends State<AllPosts> {
                 shrinkWrap: true,
                 itemCount: snapshot.data!.length,
                 itemBuilder: (context, index) {
+                  String date = DateFormat('dd-MM-yyyy').format(DateTime.parse((snapshot.data![index].dateCreate).toString()));
                   return snapshot.data![index].title!
                           .toLowerCase()
                           .contains(searchString.toLowerCase())
@@ -261,7 +263,7 @@ class _AllPosts extends State<AllPosts> {
                                             ),
                                           ),
                                           child: Text(
-                                            (snapshot.data![index].dateCreate)
+                                            (date)
                                                 .toString(),
                                             style: const TextStyle(
                                               fontSize: 10,
