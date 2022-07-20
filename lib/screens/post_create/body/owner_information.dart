@@ -3,7 +3,10 @@ import 'package:apart_rent/size_config.dart';
 import 'package:flutter/material.dart';
 
 class OwnerInformation extends StatelessWidget {
-  const OwnerInformation({Key? key}) : super(key: key);
+  final TextEditingController name;
+  final TextEditingController phone;
+  final TextEditingController email;
+  const OwnerInformation({Key? key, required this.name, required this.phone, required this.email}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,10 +17,11 @@ class OwnerInformation extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              const Card(
+              Card(
                 elevation: 0,
-                color: Color.fromARGB(176, 243, 243, 243),
+                color: const Color.fromARGB(176, 243, 243, 243),
                 child: CustomTextField(
+                  controller: name,
                     hint: "Tên liên hệ",
                     label: "Nhập tên",
                     type: TextInputType.text),
@@ -25,21 +29,11 @@ class OwnerInformation extends StatelessWidget {
               SizedBox(
                 height: getProportionateScreenWidth(3),
               ),
-              const Card(
+              Card(
                 elevation: 0,
-                color: Color.fromARGB(176, 243, 243, 243),
+                color: const Color.fromARGB(176, 243, 243, 243),
                 child: CustomTextField(
-                    hint: "Địa chỉ",
-                    label: "Nhập địa chỉ",
-                    type: TextInputType.number),
-              ),
-              SizedBox(
-                height: getProportionateScreenWidth(3),
-              ),
-              const Card(
-                elevation: 0,
-                color: Color.fromARGB(176, 243, 243, 243),
-                child: CustomTextField(
+                  controller: phone,
                     hint: "Di động",
                     label: "Nhập di động",
                     type: TextInputType.number),
@@ -47,13 +41,14 @@ class OwnerInformation extends StatelessWidget {
               SizedBox(
                 height: getProportionateScreenWidth(3),
               ),
-              const Card(
+              Card(
                 elevation: 0,
-                color: Color.fromARGB(176, 243, 243, 243),
+                color: const Color.fromARGB(176, 243, 243, 243),
                 child: CustomTextField(
+                  controller: email,
                     hint: "Email",
                     label: "Nhập Email",
-                    type: TextInputType.number),
+                    type: TextInputType.text),
               ),
               SizedBox(
                 height: getProportionateScreenWidth(30),
